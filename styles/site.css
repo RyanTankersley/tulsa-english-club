@@ -1,0 +1,67 @@
+body {
+	background: #F3F3F3;
+}
+
+.navbar {
+	border-radius: 0;
+    box-shadow: 0px 1px 4px 0px #000000;
+	margin-bottom: 0;
+	background: #006064;
+	border: solid 1px #006064;
+}
+
+.navbar-inverse .navbar-brand {
+	color: #f3f3f3;
+	margin: 0;
+}
+
+.container {
+	margin: 0;
+	width: 100%;
+	padding: 0;
+}
+
+.row {
+	margin: 0;
+}
+
+.main-card {
+	background: #00BCD4;
+    box-shadow: 0px 1px 4px 0px #000000;
+}
+
+.main-image {
+	margin-top: 10px;
+}
+
+.img-circle {
+	box-shadow: 0px 1px 4px 0px #000000;
+}
+
+.main-title {
+	margin: 0;
+	color: #F3F3F3;
+}
+
+.title-tagline {
+	margin: 0; margin-bottom: 5px; margin-top: 3px;
+	color: #F3F3F3;
+}
+
+.activity-container {
+	margin-top: 20px;
+	margin-bottom: 20px;
+}
+
+.activity {
+	background: white;
+	box-shadow: 0px 1px 4px 0px #000000;
+	z-index: -1;	
+}
+
+@media (max-width: 992px) {
+	.activity-container {
+		margin-top: 0;
+		margin-bottom: 0;
+	}	
+}

@@ -1,0 +1,88 @@
+<!doctype html>
+
+<html lang="en">
+	<head>
+		<meta charset="utf-8">
+		
+		<title>Tulsa English Club</title>
+		
+		<link rel="stylesheet" href="node_modules/bootstrap/dist/css/bootstrap.min.css">
+		<link rel="stylesheet" href="styles/site.css">
+		
+	</head>
+	<body>
+		<nav class="navbar navbar-inverse">
+			<div class="navbar-header">
+				<p class="navbar-brand">Tulsa English Club</p>
+			</div>
+		</nav>
+		<div class="container">
+			<div class="row main-card">
+				<div align="center" class="main-image">
+					<img src="content/cabin.png" class="img-responsive img-circle" />
+				</div>
+				<div align="center">
+					<h1 class="main-title">Tulsa English Club</h1>
+					<h3 class="title-tagline">The best place to practice English and make new friends</h3>
+				</div>
+			</div>
+			<div class="row activity-container">
+				<div class="activity col-xs-12 col-md-offset-1 col-md-4">
+					<h3>This Week</h3>
+					<p id="js-this-when"></p>
+					<p id="js-this-where"></p>
+					<p id="js-this-activities"></p>
+					<p id="js-this-snacks"></p>
+				</div>
+				<div class="activity col-xs-12 col-md-offset-2 col-md-4">
+					<h3>Next Week</h3>
+					<p id="js-next-when"></p>
+					<p id="js-next-where"></p>
+					<p id="js-next-activities"></p>
+					<p id="js-next-snacks"></p>
+				</div>
+			</div>
+			<div class="row">
+				<div class="activity col-xs-12 col-md-offset-1 col-md-10">
+					<h3>Upcoming Events</h3>
+					<p>Monday club at 3pm</p>				
+				</div>
+			</div>						
+		</div>
+		
+		<script>
+			var activities = getActivities();
+			
+			function getActivities() {
+				return [
+					new Activity("7:30PM", 
+						"address goes there", "Steve and Teresa Alleman", 
+						"Ryan and Michelle Tankersley"),
+					new Activity("8:30PM", 
+						"address goes here", "Bob", 
+						"Joy"),
+				];
+			};
+			function Activity(when, where, activities, snacks) {
+				this.when = when;
+				this.where = where;
+				this.activities = activities;
+				this.snacks = snacks;	
+			};
+			
+			var setValues = function(isThisWeek, activity) {
+				setValue(isThisWeek, activity.when, "when", "When");
+				setValue(isThisWeek, activity.where, "where", "Where");
+				setValue(isThisWeek, activity.activities, "activities", "Activities");
+				setValue(isThisWeek, activity.snacks, "snacks", "Snacks");
+			};
+			
+			var setValue = function(thisWeek, value, valueType, upperValueType) {
+				document.getElementById('js-' + (thisWeek ? 'this' : 'next') + '-' + valueType).innerHTML = "<strong>" + upperValueType + "</strong>: " + value;
+			};
+			
+			setValues(true, activities[0]);
+			setValues(false, activities[1]);
+		</script>
+	</body>
+</html>
