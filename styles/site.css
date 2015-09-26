@@ -38,6 +38,10 @@ body {
 	box-shadow: 0px 1px 4px 0px #000000;
 }
 
+.img-square {
+	box-shadow: 0px 1px 4px 0px #000000;
+}
+
 .main-title {
 	margin: 0;
 	color: #F3F3F3;

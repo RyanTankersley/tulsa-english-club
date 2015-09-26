@@ -29,20 +29,26 @@
 			</div>
 			<div class="row activity-container">
 				<div class="activity col-xs-12 col-md-offset-1 col-md-4">
-					<h1 align="center"><strong>This Week</strong></h1>
+					<h1 align="center"><strong>September 21</strong></h1>
 					<hr>
 					<h2 id="js-this-when"></h2>
-					<h2 id="js-this-where"></h2>
 					<h2 id="js-this-activities"></h2>
+					<div id="js-this-activities-image"></div>
 					<h2 id="js-this-snacks"></h2>
+					<div id="js-this-snacks-image"></div>
+					<h2><strong>Where:<strong></h2>
+					<img src="content/larissahouse.png" class="img img-responsive img-square" />
 				</div>
 				<div class="activity col-xs-12 col-md-offset-2 col-md-4">
-					<h1 align="center"><strong>Next Week</strong></h1>
+					<h1 align="center"><strong>September 28</strong></h1>
 					<hr>
 					<h2 id="js-next-when"></h2>
-					<h2 id="js-next-where"></h2>
 					<h2 id="js-next-activities"></h2>
+					<div id="js-next-activities-image"></div>
 					<h2 id="js-next-snacks"></h2>
+					<div id="js-next-snacks-image"></div>
+					<h2><strong>Where:<strong></h2>
+					<img src="content/larissahouse.png" class="img img-responsive img-square" />
 				</div>
 			</div>
 			<div class="row">
@@ -68,11 +74,11 @@
 			function getActivities() {
 				return [
 					new Activity("6:30 - 8:30 PM", 
-						"4331 East 5th St. Tulsa, OK 74112", "Ryan and Michelle Tankersley", 
-						"Steve and Teresa Alleman"),
+						"4331 East 5th St. Tulsa, OK 74112", "ryan", 
+						"steve"),
 					new Activity("6:30 - 8:30 PM", 
-						"4331 East 5th St. Tulsa, OK 74112", "Lois Gregory", 
-						"Steve and Teresa Alleman"),
+						"4331 East 5th St. Tulsa, OK 74112", "lois", 
+						"steve"),
 				];
 			};
 			function Activity(when, where, activities, snacks) {
@@ -84,13 +90,19 @@
 			
 			var setValues = function(isThisWeek, activity) {
 				setValue(isThisWeek, activity.when, "when", "When");
-				setValue(isThisWeek, activity.where, "where", "Where");
-				setValue(isThisWeek, activity.activities, "activities", "Activities");
-				setValue(isThisWeek, activity.snacks, "snacks", "Snacks");
+				//setValue(isThisWeek, activity.where, "where", "Where");
+				setValue(isThisWeek, "", "activities", "Activities");
+				setValue(isThisWeek, "", "snacks", "Snacks");
+				setImageValue(isThisWeek, activity.activities, "activities", "Activities");
+				setImageValue(isThisWeek, activity.snacks, "snacks", "Snacks");
 			};
 			
 			var setValue = function(thisWeek, value, valueType, upperValueType) {
 				document.getElementById('js-' + (thisWeek ? 'this' : 'next') + '-' + valueType).innerHTML = "<strong>" + upperValueType + "</strong>: " + value;
+			};
+			
+			var setImageValue = function(thisWeek, value, valueType) {
+				document.getElementById('js-' + (thisWeek ? 'this' : 'next') + '-' + valueType + '-image').innerHTML = "<img class=\"img-circle\" style=\"max-height: 100px; max-width: 100px;\" src=\"content/" + value + ".jpg\" />";
 			};
 			
 			setValues(true, activities[0]);
